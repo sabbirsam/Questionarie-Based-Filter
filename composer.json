@@ -1,0 +1,19 @@
+{
+    "name": "sabbir/sabbir-plugin",
+    "description": "Sabbir Plugin is demo plugin for only learning purpose",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "sabbir",
+            "email": "samiubat14@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    }
+}
