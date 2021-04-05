@@ -11,7 +11,7 @@ class Admin
     }
 
     public function add_admin_pages(){  //3   then it has 3-1 see below
-        add_menu_page( 'Sabbir Plugin', 'Sabbir', 'manage_options', 'sabbir_plugin', array( $this, 'admin_index_design' ), 'dashicons-store', 110 );
+        add_menu_page( 'Questionarie Based Filter Plugin', 'QBS', 'manage_options', 'qbs_plugin', array( $this, 'admin_index_design' ), 'dashicons-store', 110 );
 
     }
 

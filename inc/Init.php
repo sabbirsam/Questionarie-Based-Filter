@@ -15,11 +15,11 @@ final class Init
             Pages\Admin::class,
             Base\Enqueue::class,
             Base\Setting::class,
+            Pages\UserLogin::class
 
 
         );
     }
-
 
     public static function  register_services(){
         foreach ( self::get_services() as $class){

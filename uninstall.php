@@ -3,7 +3,7 @@
 /**
  * Trigger this file on Plugin uninstall
  *
- * @package  AlecadddPlugin
+ * @package  qbaPlugin
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

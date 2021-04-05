@@ -22,8 +22,8 @@ class Setting
     public function settings_link( $links ) {  //4
 //        $settings_link = '<a href="admin.php?page=sabbir_plugin">SAM Settings</a>';  // for single use it this way
        $settings_link = array(
-           '<a href="admin.php?page=sabbir_plugin">Create Questionarie</a>',
-           '<a href="admin.php?page=sabbir_plugin">Settings</a>',
+           '<a href="admin.php?page=qbs_plugin">Create Questionarie</a>',
+           '<a href="admin.php?page=qbs_plugin">Settings</a>',
         );
 
 //        array_push( $links, $settings_link );   // for sinle use this
