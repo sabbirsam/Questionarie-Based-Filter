@@ -25,4 +25,11 @@ class AdminCallbacks extends BaseController
         return require_once( "$this->plugin_path/templates/settings.php" );
     }
 
+    public function authentication()
+    {
+        return require_once( "$this->plugin_path/templates/auth.php" );
+    }
+
+
+
 }

@@ -4,7 +4,9 @@
  */
 
 namespace Inc\Pages;
-class UserLogin
+use Inc\Base\BaseController;
+
+class UserLogin extends BaseController
 {
     public function register(){
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
@@ -14,15 +16,16 @@ class UserLogin
 
     public function enqueue()
     {
-        wp_enqueue_style( 'authstyle', PLUGIN_URL . 'assets/auth.css' );
-        wp_enqueue_script( 'authscript', PLUGIN_URL . 'assets/auth.js' );
+        wp_enqueue_style( 'authstyle', $this->plugin_url . 'assets/auth.css' );
+        wp_enqueue_script( 'authscript', $this->plugin_url . 'assets/auth.js' );
     }
+
 
     public function add_auth_template()
     {
         if ( is_user_logged_in() ) return;
 
-        $file = require_once PLUGIN_PATH. 'templates/auth.php';
+        $file = require_once $this->plugin_path. 'templates/auth.php';
 
         if ( file_exists( $file ) ) {
             load_template( $file, true );
@@ -61,3 +64,4 @@ class UserLogin
         die();
     }
 }
+
