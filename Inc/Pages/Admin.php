@@ -9,13 +9,17 @@ use Inc\Base\BaseController;
 use \Inc\Api\SettingsApi;
 
 class Admin extends BaseController
-
 {
-
     public $settings;
+
+    public $pages = array();
+
+    public $subpages = array();
+
     public function __construct()
     {
         $this->settings = new SettingsApi();
+
         $this->pages = array(
             array(
                 'page_title' => 'QBF Plugin',
@@ -28,13 +32,30 @@ class Admin extends BaseController
             )
         );
 
+        $this->subpages = array(
+            array(
+                'parent_slug' => 'questionarie_based_filter',
+                'page_title' => 'Create Questionaries',
+                'menu_title' => 'Create Questionaries',
+                'capability' => 'manage_options',
+                'menu_slug' => 'questionarie_based_filter_cqbf',
+                'callback' => function() { echo '<h1>Create Questionaries</h1>'; }
+            ),
+            array(
+                'parent_slug' => 'questionarie_based_filter',
+                'page_title' => 'Setting',
+                'menu_title' => 'Setting',
+                'capability' => 'manage_options',
+                'menu_slug' => 'questionarie_based_filter_setting',
+                'callback' => function() { echo '<h1>Setting</h1>'; }
+            )
+        );
     }
 
-
-    public function register(){
-        $this->settings->addPages( $this->pages )->register();
+    public function register()
+    {
+        $this->settings->addPages( $this->pages )->withSubPage( '' )->addSubPages( $this->subpages )->register();
     }
-
 }
 
 
