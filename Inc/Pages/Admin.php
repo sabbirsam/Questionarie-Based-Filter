@@ -7,10 +7,72 @@ namespace Inc\Pages;
 
 use Inc\Base\BaseController;
 use \Inc\Api\SettingsApi;
+use Inc\Api\Callbacks\AdminCallbacks;
 
 class Admin extends BaseController
 {
     public $settings;
+    public $callbacks;   // TO call the callbacks so make a variable
+
+    public $pages = array();
+    public $subpages = array();
+
+    public function register()
+    {
+        $this->settings = new SettingsApi();
+
+        $this->callbacks = new AdminCallbacks();  //call admin callback using callback variable
+
+        $this->setPages();
+
+        $this->setSubpages();
+
+        $this->settings->addPages( $this->pages )->withSubPage( 'Dashboard' )->addSubPages( $this->subpages )->register();
+    }
+
+    public function setPages()
+    {
+        $this->pages = array(
+            array(
+                'page_title' => 'QBF Plugin',
+                'menu_title' => 'QBF',
+                'capability' => 'manage_options',
+                'menu_slug' => 'questionarie_based_filter',
+                'callback' => array( $this->callbacks, 'adminDashboard' ),
+                'icon_url' => 'dashicons-buddicons-topics',
+                'position' => 110
+            )
+        );
+    }
+
+    public function setSubpages()
+    {
+        $this->subpages = array(
+            array(
+                'parent_slug' => 'questionarie_based_filter',
+                'page_title' => 'Create Questionaries',
+                'menu_title' => 'Create Questionaries',
+                'capability' => 'manage_options',
+                'menu_slug' => 'questionarie_based_filter_cqbf',
+                'callback' => array( $this->callbacks, 'createQuestionaries' ),
+            ),
+            array(
+                'parent_slug' => 'questionarie_based_filter',
+                'page_title' => 'Setting',
+                'menu_title' => 'Setting',
+                'capability' => 'manage_options',
+                'menu_slug' => 'questionarie_based_filter_setting',
+                'callback' => array( $this->callbacks, 'settings' ),
+            )
+        );
+    }
+}
+
+
+
+
+//OLD ONE=================================================================================================
+    /*public $settings;
 
     public $pages = array();
 
@@ -55,13 +117,7 @@ class Admin extends BaseController
     public function register()
     {
         $this->settings->addPages( $this->pages )->withSubPage( '' )->addSubPages( $this->subpages )->register();
-    }
-}
-
-
-
-
-//OLD ONE=================================================================================================
+    }*/
 
 /*
  * namespace Inc\Pages;
