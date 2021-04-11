@@ -10,7 +10,7 @@ use \Inc\Api\SettingsApi;
 use Inc\Api\Callbacks\AdminCallbacks;
 use Inc\Api\Callbacks\ManagerCallbacks;
 
-class Admin extends BaseController
+class Dashboard extends BaseController
 {
     /**
      * variable
