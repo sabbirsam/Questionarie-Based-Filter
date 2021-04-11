@@ -94,25 +94,36 @@ class Admin extends BaseController
         );
     }
 
-
-
     /**
      * Set setting
      */
 
     public function setSettings()
     {
-        $args = array();
-        //$key=>$value
-        foreach ($this->managers as $key=>$value){
-            //var_dump($key);
+
+        $args = array(
             $args [] = array(
                 'option_group' => 'questionarie_settings',
-                'option_name' => $key,   //must same name as custom field in AdminCallbacks.php
+                'option_name' => 'questionarie_based_filter',   //use from setFields()=> page /must same name as custom field in AdminCallbacks.php
                 'callback' => array( $this->callbacks_mngr, 'questionariecheckboxSanitizer' )
-            );
-        }
+            )
+        );
+        //$key=>$value
+
         $this->settings->setSettings( $args );
+
+
+//        $args = array();
+//        //$key=>$value
+//        foreach ($this->managers as $key=>$value){
+//            //var_dump($key);
+//            $args [] = array(
+//                'option_group' => 'questionarie_settings',
+//                'option_name' => $key,   //must same name as custom field in AdminCallbacks.php
+//                'callback' => array( $this->callbacks_mngr, 'questionariecheckboxSanitizer' )
+//            );
+//        }
+//        $this->settings->setSettings( $args );
     }
 
 
@@ -142,10 +153,12 @@ class Admin extends BaseController
             $args [] = array(
                 'id' => $key, //need to same as SetSetings option name -> questionarie_gmail
                 'title' => $value,
-                'callback' => array( $this->callbacks_mngr, 'questionariecheckboxField' ),
+                'callback' => array( $this->callbacks_mngr, 'questionariecheckboxField' ),  //inthe managerCallbacks
                 'page' => 'questionarie_based_filter', //same as SetSections
                 'section' => 'questionarie_admin_index', //same id of setSection
                 'args' => array(
+
+                    'option_name'=> 'questionarie_based_filter',
                     'label_for' => $key,
                     'class' => 'ui-toogle'
                 )

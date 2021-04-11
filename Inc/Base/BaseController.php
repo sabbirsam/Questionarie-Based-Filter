@@ -21,13 +21,13 @@ class BaseController
 
         $this->managers = array(
 
-             'questionarie_cpt'=>'Activate Custom Field',
-             'questionarie_taxonomy_manager' => 'Taxonomy Manager',
-             'questionarie_meida_widget' => 'Media Widgets',
-             'questionarie_post_gallery' => 'Post Gallery',
-             'questionarie_testimonial' => 'Testimonial',
-             'questionarie_custom_template' => 'Custom Template',
-             'questionarie_login' => 'Front End Login Setting'
+             'questionarie_cpt'=>'Activate Questionaries Setting',
+//             'questionarie_taxonomy_manager' => 'Taxonomy Manager',
+//             'questionarie_meida_widget' => 'Media Widgets',
+//             'questionarie_post_gallery' => 'Post Gallery',
+//             'questionarie_testimonial' => 'Testimonial',
+//             'questionarie_custom_template' => 'Custom Template',
+             'questionarie_login' => 'Frontend Login Setting'
 
         );
     }
