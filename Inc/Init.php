@@ -15,6 +15,7 @@ final class Init
             Base\Enqueue::class,
             Base\Setting::class,
             Pages\UserLogin::class,
+            Pages\FloatingSwitch::class,
             Base\CPTControllerSetting::class,
 
 

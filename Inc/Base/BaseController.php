@@ -21,8 +21,8 @@ class BaseController
 
         $this->managers = array(
 
-             'questionarie_cpt'=>'Activate Questionaries Setting',
-//             'questionarie_taxonomy_manager' => 'Taxonomy Manager',
+             'questionarie_cpt'=>'Create Questionaries',
+             'questionarie_floating_option' => 'Floating Option',
 //             'questionarie_meida_widget' => 'Media Widgets',
 //             'questionarie_post_gallery' => 'Post Gallery',
 //             'questionarie_testimonial' => 'Testimonial',

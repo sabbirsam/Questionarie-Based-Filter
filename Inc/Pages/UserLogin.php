@@ -35,8 +35,8 @@ class UserLogin extends BaseController
 
     public function enqueue()
     {
-        wp_enqueue_style( 'authstyle', $this->plugin_url . 'assets/auth.css' );
-        wp_enqueue_script( 'authscript', $this->plugin_url . 'assets/auth.js' );
+        wp_enqueue_style( 'authstyle', $this->plugin_url . 'assets/Public/auth.css' );
+        wp_enqueue_script( 'authscript', $this->plugin_url . 'assets/Public/auth.js' );
     }
 
 

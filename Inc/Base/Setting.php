@@ -19,7 +19,7 @@ class Setting extends BaseController
     public function settings_link( $links ) {  //4
 //        $settings_link = '<a href="admin.php?page=sabbir_plugin">SAM Settings</a>';  // for single use it this way
        $settings_link = array(
-           '<a href="admin.php?page=questionarie_based_filter">Create Questionarie</a>',
+           '<a href="admin.php?page=questionarie_based_filter_cqbf">Create Questionarie</a>',
            '<a href="admin.php?page=questionarie_based_filter">Settings</a>',
         );
 
