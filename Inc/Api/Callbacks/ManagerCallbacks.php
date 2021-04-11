@@ -26,8 +26,7 @@ class ManagerCallbacks extends BaseController
             $output[$key] = isset($input[$key]) ? true : false ;
         }
         return $output;
-        // return filter_var($input, FILTER_SANITIZE_NUMBER_INT);
-        // return ( isset($input) ? true : false );
+
     }
 
     public function questionarieAdminSectionManager()

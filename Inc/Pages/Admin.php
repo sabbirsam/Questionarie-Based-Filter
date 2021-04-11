@@ -108,22 +108,9 @@ class Admin extends BaseController
                 'callback' => array( $this->callbacks_mngr, 'questionariecheckboxSanitizer' )
             )
         );
-        //$key=>$value
 
         $this->settings->setSettings( $args );
 
-
-//        $args = array();
-//        //$key=>$value
-//        foreach ($this->managers as $key=>$value){
-//            //var_dump($key);
-//            $args [] = array(
-//                'option_group' => 'questionarie_settings',
-//                'option_name' => $key,   //must same name as custom field in AdminCallbacks.php
-//                'callback' => array( $this->callbacks_mngr, 'questionariecheckboxSanitizer' )
-//            );
-//        }
-//        $this->settings->setSettings( $args );
     }
 
 

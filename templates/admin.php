@@ -7,13 +7,19 @@
 
 
    <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab-1">Manage Settings</a></li>
+        <li class="active"><a href="#tab-1">Dashboard</a></li>
         <li><a href="#tab-2">Updates</a></li>
         <li><a href="#tab-3">About Me</a></li>
     </ul>
 
     <div class="tab-content">
         <div id="tab-1" class="tab-pane active">
+            <h3>Dashboard</h3>
+
+        </div>
+        <div id="tab-2" class="tab-pane">
+
+
             <form method="post" action="options.php">
                 <?php
                 settings_fields( 'questionarie_settings' );  //setSettings optiongroup need to same here
@@ -23,12 +29,9 @@
             </form>
 
         </div>
-        <div id="tab-2" class="tab-pane">
-            <h3>Updates</h3>
-        </div>
 
         <div id="tab-3" class="tab-pane">
-            <h3>About</h3>
+            <h3>About us</h3>
         </div>
 
     </div>
