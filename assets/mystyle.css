@@ -10,6 +10,11 @@
     float:left;
     margin-bottom:-1px
 }
+.nav-tabs>li a{
+    font-family: unset;
+    font-weight: 500;
+}
+
 .nav-tabs>li>a{
     margin-right:2px;
     line-height:1.5;
