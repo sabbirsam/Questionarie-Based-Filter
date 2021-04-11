@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @package  questionarie-based-filter
  */
@@ -15,7 +14,8 @@ final class Init
             Pages\Admin::class,
             Base\Enqueue::class,
             Base\Setting::class,
-            Pages\UserLogin::class
+            Pages\UserLogin::class,
+
 
 
         );

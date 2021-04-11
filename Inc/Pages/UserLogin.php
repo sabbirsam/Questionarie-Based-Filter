@@ -23,7 +23,7 @@ class UserLogin extends BaseController
 
     public function add_auth_template()
     {
-        if ( is_user_logged_in() ) return;
+//        if ( is_user_logged_in() ) return;
 
         $file = require_once $this->plugin_path. 'templates/auth.php';
 

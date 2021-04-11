@@ -20,16 +20,44 @@ class AdminCallbacks extends BaseController
         return require_once( "$this->plugin_path/templates/create_question.php" );
     }
 
+    /**
+     * @return mixed
+     */
+
     public function settings()
     {
         return require_once( "$this->plugin_path/templates/settings.php" );
     }
 
-    public function authentication()
+    /**
+     * @param $input
+     * @return mixed
+     * it used to add field
+     */
+/*    public function questionarieOptionsGroup($input) //here used
     {
-        return require_once( "$this->plugin_path/templates/auth.php" );
+        return $input;
+    }
+
+    public function questionarieAdminSection() //here used
+    {
+        echo "Hello from AdminCallback.php and triggered from admin.php SetSection()";
+    }*/
+
+
+    public function questionarieGmailInput() //here used
+    {
+        $value = esc_attr( get_option( 'questionarie_gmail' ) );
+        echo '<input type="text" class="regular-text" name="questionarie_gmail" value="' . $value . '" placeholder="Gmail here!">';
+
     }
 
 
+    public function questionariePasswordInput() //here used
+    {
+        $value = esc_attr( get_option( 'questionarie_password' ) );
+        echo '<input type="text" class="regular-text" name="questionarie_password" value="' . $value . '" placeholder="Password here!">';
+
+    }
 
 }
