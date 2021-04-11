@@ -1,15 +1,15 @@
 
 
 <div class="wrap">
-    <h1>All In One Plugin</h1>
+    <h1>Questionarie Plugin</h1>
     <?php settings_errors(); ?>
 
 
 
    <ul class="nav nav-tabs">
         <li class="active"><a href="#tab-1">Dashboard</a></li>
-        <li><a href="#tab-2">Updates</a></li>
-        <li><a href="#tab-3">About Me</a></li>
+        <li><a href="#tab-2">Settings</a></li>
+        <li><a href="#tab-3">About WPPOOL</a></li>
     </ul>
 
     <div class="tab-content">
@@ -32,6 +32,7 @@
 
         <div id="tab-3" class="tab-pane">
             <h3>About us</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Pmso8MJRpBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
     </div>
