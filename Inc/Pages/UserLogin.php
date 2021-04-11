@@ -4,11 +4,30 @@
  */
 
 namespace Inc\Pages;
+
+use Inc\Api\Callbacks\AdminCallbacks;
+use \Inc\Api\SettingsApi;
+
 use Inc\Base\BaseController;
 
 class UserLogin extends BaseController
 {
+    public $callbacks;   // TO call the callbacks so make a variable
+    public $subpages = array();
+
     public function register(){
+//from here active with toogle
+        $option = get_option(  'questionarie_based_filter' ); //get the id from option name
+        $activate = isset($option['questionarie_login']) ? $option['questionarie_login']  : false; //this one is id from Basecontroller
+
+
+        if( ! $activate){
+            return;
+        }
+
+//from here active with toogle  end
+
+
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
         add_action( 'wp_head', array( $this, 'add_auth_template' ) );
         add_action( 'wp_ajax_nopriv_qba_login', array( $this, 'login' ) );

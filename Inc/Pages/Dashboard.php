@@ -20,7 +20,7 @@ class Dashboard extends BaseController
     public $callbacks_mngr;   // TO call the Manager callbacks so make a variable
 
     public $pages = array();
-    public $subpages = array();
+//    public $subpages = array();
 
     /**
      * Register all
@@ -38,14 +38,15 @@ class Dashboard extends BaseController
 
         $this->setPages();
 
-        $this->setSubpages();
+//        $this->setSubpages();
 
 
         $this->setSettings();
         $this->setSections();
         $this->setFields();
 
-        $this->settings->addPages( $this->pages )->withSubPage( 'Dashboard' )->addSubPages( $this->subpages )->register();
+        $this->settings->addPages( $this->pages )->withSubPage( 'Dashboard' )->register();
+        //$this->settings->addPages( $this->pages )->withSubPage( 'Dashboard' )->addSubPages( $this->subpages )->register();
     }
 
     /**
@@ -72,7 +73,7 @@ class Dashboard extends BaseController
      * set menu subpages
      */
 
-    public function setSubpages()
+    /*public function setSubpages()
     {
         $this->subpages = array(
             array(
@@ -92,7 +93,7 @@ class Dashboard extends BaseController
                 'callback' => array( $this->callbacks, 'settings' ),
             )
         );
-    }
+    }*/
 
     /**
      * Set setting

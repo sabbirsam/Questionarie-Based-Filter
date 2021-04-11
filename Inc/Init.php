@@ -11,10 +11,11 @@ final class Init
 
     public static function get_services(){
         return array(
-            Pages\Admin::class,
+            Pages\Dashboard::class,
             Base\Enqueue::class,
             Base\Setting::class,
             Pages\UserLogin::class,
+            Base\CPTControllerSetting::class,
 
 
 
