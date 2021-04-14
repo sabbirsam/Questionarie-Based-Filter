@@ -33,6 +33,7 @@ class FloatingSwitch extends BaseController
 
     public function enqueue_float()
     {
+
         wp_enqueue_style( 'floating_authstyle', $this->plugin_url . 'assets/Public/floating-button.css' );
         wp_enqueue_script( 'floating_authscript', $this->plugin_url . 'assets/floating-button.js' );
     }

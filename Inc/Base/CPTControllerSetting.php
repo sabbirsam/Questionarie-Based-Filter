@@ -42,7 +42,7 @@ class CPTControllerSetting extends BaseController
 
         if('qbf_page_questionarie_based_filter_cqbf' == $screen ){
         wp_enqueue_style('questionarie_main_part_style', $this->plugin_url . 'assets/Admin/create_ques.css');
-        wp_enqueue_script('questionarie_main_part_js', $this->plugin_url . 'assets/Admin/create_ques.js');
+        wp_enqueue_script('questionarie_main_part_js', $this->plugin_url . 'assets/Admin/create_ques.js',array('jquery'),1.0,true);
 
         }
 

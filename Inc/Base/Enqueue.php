@@ -37,12 +37,19 @@ class Enqueue extends BaseController
     }*/
 
 
-    public function admin_enqueue() {   //1
+    public function admin_enqueue($screen) {   //1
         // enqueue all our scripts
 
+       /*  echo "<pre>";
+       print_r($screen); //toplevel_page_questionarie_based_filter
+       echo "</pre>";
+       end();*/
+
+        if('toplevel_page_questionarie_based_filter' == $screen ){
             wp_enqueue_style('mypluginstyle', $this->plugin_url . 'assets/Admin/mystyle.css');
             wp_enqueue_script('mypluginscript', $this->plugin_url . 'assets/Admin/myscript.js');
 
+        }
     }
 
 
