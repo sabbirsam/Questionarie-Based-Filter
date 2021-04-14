@@ -22,13 +22,17 @@ class BaseController
         $this->managers = array(
 
              'questionarie_cpt'=>'Create Questionaries',
+             'questionarie_login' => 'Frontend Login Setting',
              'questionarie_floating_option' => 'Floating Option',
-//             'questionarie_meida_widget' => 'Media Widgets',
-//             'questionarie_post_gallery' => 'Post Gallery',
-//             'questionarie_testimonial' => 'Testimonial',
-//             'questionarie_custom_template' => 'Custom Template',
-             'questionarie_login' => 'Frontend Login Setting'
+             'questionarie_recommended_plugin' => 'Recommended Plugin',
 
         );
     }
+
+    public function activated (string $key){
+        $option = get_option(  'questionarie_based_filter' ); //get the id from option name
+        return isset($option[$key]) ? $option[$key] : false;
+    }
+
+
 }

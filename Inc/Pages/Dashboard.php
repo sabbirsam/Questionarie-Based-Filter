@@ -69,36 +69,6 @@ class Dashboard extends BaseController
         );
     }
 
-    /**
-     * set menu subpages
-     */
-
-    /*public function setSubpages()
-    {
-        $this->subpages = array(
-            array(
-                'parent_slug' => 'questionarie_based_filter',
-                'page_title' => 'Create Questionaries',
-                'menu_title' => 'Create Questionaries',
-                'capability' => 'manage_options',
-                'menu_slug' => 'questionarie_based_filter_cqbf',
-                'callback' => array( $this->callbacks, 'createQuestionaries' ),
-            ),
-            array(
-                'parent_slug' => 'questionarie_based_filter',
-                'page_title' => 'Setting',
-                'menu_title' => 'Setting',
-                'capability' => 'manage_options',
-                'menu_slug' => 'questionarie_based_filter_setting',
-                'callback' => array( $this->callbacks, 'settings' ),
-            )
-        );
-    }*/
-
-    /**
-     * Set setting
-     */
-
     public function setSettings()
     {
 

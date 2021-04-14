@@ -17,6 +17,8 @@ final class Init
             Pages\UserLogin::class,
             Pages\FloatingSwitch::class,
             Base\CPTControllerSetting::class,
+            Base\Recommended_plugin::class,
+
 
 
 

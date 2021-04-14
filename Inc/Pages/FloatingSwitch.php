@@ -27,7 +27,6 @@ class FloatingSwitch extends BaseController
 
 //from here active with toogle  end
 
-
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_float' ) );
         add_action( 'wp_head', array( $this, 'add_floating_template' ) );
     }
