@@ -1,7 +1,7 @@
 
 
 <div class="wrap">
-    <h1>All In One Plugin</h1>
+    <h1>Question Based Filter</h1>
     <?php settings_errors(); ?>
 
 
