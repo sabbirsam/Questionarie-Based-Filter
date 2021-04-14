@@ -19,4 +19,5 @@ class Activate
         update_option( 'questionarie_based_filter', $default );
 
 	}
+
 }

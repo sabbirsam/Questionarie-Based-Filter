@@ -19,6 +19,15 @@ if ( file_exists( dirname( __FILE__).'/vendor/autoload.php')){
     require_once dirname(__FILE__).'/vendor/autoload.php';
 }
 
+
+add_action( 'activated_plugin', function ($plugin){
+    if(plugin_basename(__FILE__)==$plugin){
+        wp_redirect(admin_url('admin.php?page=questionarie_based_filter'));
+        die();
+    }
+});
+
+
 function activate_questionarie_based_filter() {
     Inc\Base\Activate::activate();
 }

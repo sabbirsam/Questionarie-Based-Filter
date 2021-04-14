@@ -10,9 +10,6 @@ use Inc\Base\BaseController;
 
 class ManagerCallbacks extends BaseController
 {
-
-
-
     /**
      * @param $input
      * @return mixed
