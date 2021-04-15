@@ -1,190 +1,239 @@
+/*
+console.log('This is drag and drop utility');
 
+const imgBox = document.querySelector('.imgBox');
+const whiteBoxes = document.getElementsByClassName('whiteBox');
 
-var quiz = {
-    // (A) PROPERTIES
-    // (A1) QUESTIONS & ANSWERS
-    // Q = QUESTION, O = OPTIONS, A = CORRECT ANSWER
-    data: [
-        {
-            q : "What is your name?",
-            o : [
-                "Sabbir",
-                "Sam",
-                "Antik",
-                "superman"
-            ],
-            a : 1 // arrays start with 0, so answer is 70 meters
-        },
-        {
-            q : "Which is the highest number on a standard roulette wheel?",
-            o : [
-                "22",
-                "24",
-                "32",
-                "36"
-            ],
-            a : 3
-        },
-        {
-            q : "How much wood could a woodchuck chuck if a woodchuck would chuck wood?",
-            o : [
-                "400 pounds",
-                "550 pounds",
-                "700 pounds",
-                "750 pounds"
-            ],
-            a : 2
-        },
-        {
-            q : "Which is the seventh planet from the sun?",
-            o : [
-                "Uranus",
-                "Earth",
-                "Pluto",
-                "Mars"
-            ],
-            a : 0
-        },
-        {
-            q : "Which is the largest ocean on Earth?",
-            o : [
-                "Atlantic Ocean",
-                "Indian Ocean",
-                "Arctic Ocean",
-                "Pacific Ocean"
-            ],
-            a : 3
-        }
-    ],
+// Event listeners for draggable element imgBox
+imgBox.addEventListener('dragstart', (e) => {
+    console.log('DragStart has been triggered');
+    e.target.className += ' hold';
+    setTimeout(() => {
+        e.target.className = 'hide';
+    }, 0);
 
-    // (A2) HTML ELEMENTS
-    hWrap: null, // HTML quiz container
-    hQn: null, // HTML question wrapper
-    hAns: null, // HTML answers wrapper
+});
 
-    // (A3) GAME FLAGS
-    now: 0, // current question
-    score: 0, // current score
+imgBox.addEventListener('dragend', (e) => {
+    console.log('DragEnd has been triggered');
+    e.target.className = 'imgBox';
+});
 
-    // (B) INIT QUIZ HTML
-    init: function(){
-        // (B1) WRAPPER
-        quiz.hwrap = document.getElementById("quizWrap");
+for (whiteBox of whiteBoxes) {
+    whiteBox.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        console.log('DragOver has been triggered');
+    });
 
-        // (B2) QUESTIONS SECTION
-        quiz.hqn = document.createElement("div");
-        quiz.hqn.id = "quizQn";
-        quiz.hwrap.appendChild(quiz.hqn);
-
-        // (B3) ANSWERS SECTION
-        quiz.hans = document.createElement("div");
-        quiz.hans.id = "quizAns";
-        quiz.hwrap.appendChild(quiz.hans);
-
-        // (B4) GO!
-        quiz.draw();
-    },
-
-    // (C) DRAW QUESTION
-    draw: function(){
-        // (C1) QUESTION
-        quiz.hqn.innerHTML = quiz.data[quiz.now].q;
-
-        // (C2) OPTIONS
-        quiz.hans.innerHTML = "";
-        for (let i in quiz.data[quiz.now].o) {
-            let radio = document.createElement("input");
-            radio.type = "radio";
-            radio.name = "quiz";
-            radio.id = "quizo" + i;
-            quiz.hans.appendChild(radio);
-            let label = document.createElement("label");
-            label.innerHTML = quiz.data[quiz.now].o[i];
-            label.setAttribute("for", "quizo" + i);
-            label.dataset.idx = i;
-            label.addEventListener("click", quiz.select);
-            quiz.hans.appendChild(label);
-        }
-    },
-
-    // (D) OPTION SELECTED
-    select: function(){
-        // (D1) DETACH ALL ONCLICK
-        let all = quiz.hAns.getElementsByTagName("label");
-        for (let label of all) {
-            label.removeEventListener("click", quiz.select);
-        }
-
-        // (D2) CHECK IF CORRECT
-        let correct = this.dataset.idx == quiz.data[quiz.now].a;
-        if (correct) {
-            quiz.score++;
-            this.classList.add("correct");
-        } else {
-            this.classList.add("wrong");
-        }
-        // (D3) NEXT QUESTION OR END GAME
-        quiz.now++;
-        setTimeout(function(){
-            if (quiz.now < quiz.data.length) { quiz.draw(); }
-            else {
-                quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
-                quiz.hAns.innerHTML = "";
-            }
-        }, 1000);
-    }
-};
-window.addEventListener("load", quiz.init);
-
-// DOM Elements
-
-
-
-const tabs = document.querySelectorAll('.tab')
-const tabContents = document.querySelectorAll('.tabcontent')
-const darkModeSwitch = document.querySelector('#dark-mode-switch')
-
-// Functions
-const activateTab = tabnum => {
-
-    tabs.forEach( tab => {
-        tab.classList.remove('active')
+    whiteBox.addEventListener('dragenter', (e) => {
+        console.log('DragEnter has been triggered');
+        e.target.className += ' dashed';
     })
 
-    tabContents.forEach( tabContent => {
-        tabContent.classList.remove('active')
+    whiteBox.addEventListener('dragleave', (e) => {
+        console.log('DragLeave has been triggered');
+        e.target.className = 'whiteBox'
     })
 
-    document.querySelector('#tab' + tabnum).classList.add('active')
-    document.querySelector('#tabcontent' + tabnum).classList.add('active')
-    localStorage.setItem('jstabs-opentab', JSON.stringify(tabnum))
-
-}
-
-// Event Listeners
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        activateTab(tab.dataset.tab)
+    whiteBox.addEventListener('drop', (e) => {
+        console.log('Drop has been triggered');
+        e.target.append(imgBox);
     })
-})
+}*/
 
-darkModeSwitch.addEventListener('change', () => {
-    document.querySelector('body').classList.toggle('darkmode')
-    localStorage.setItem('jstabs-darkmode', JSON.stringify(!darkmode))
-})
 
-// Retrieve stored data
-let darkmode = JSON.parse(localStorage.getItem('jstabs-darkmode'))
-const opentab =  JSON.parse(localStorage.getItem('jstabs-opentab')) || '3'
+/**
 
-// and..... Action!
-if (darkmode === null) {
-    darkmode = window.matchMedia("(prefers-color-scheme: dark)").matches // match to OS theme
+ [
+ {
+    "type": "autocomplete",
+    "required": false,
+    "label": "Autocomplete",
+    "className": "form-control",
+    "name": "autocomplete-1618503339326",
+    "access": false,
+    "requireValidOption": false,
+    "values": [
+      {
+        "label": "Option 1",
+        "value": "option-1",
+        "selected": true
+      },
+      {
+        "label": "Option 2",
+        "value": "option-2",
+        "selected": false
+      },
+      {
+        "label": "Option 3",
+        "value": "option-3",
+        "selected": false
+      }
+    ]
+  },
+ {
+    "type": "button",
+    "label": "Button",
+    "subtype": "button",
+    "className": "btn-default btn",
+    "name": "button-1618503342426",
+    "access": false,
+    "style": "default"
+  },
+ {
+    "type": "checkbox-group",
+    "required": false,
+    "label": "Checkbox Group",
+    "toggle": false,
+    "inline": false,
+    "name": "checkbox-group-1618503345174",
+    "access": false,
+    "other": false,
+    "values": [
+      {
+        "label": "Option 1",
+        "value": "option-1",
+        "selected": true
+      }
+    ]
+  },
+ {
+    "type": "date",
+    "required": false,
+    "label": "Date Field",
+    "className": "form-control",
+    "name": "date-1618503347923",
+    "access": false
+  },
+ {
+    "type": "date",
+    "required": false,
+    "label": "Date Field",
+    "className": "form-control",
+    "name": "date-1618503351042",
+    "access": false
+  },
+ {
+    "type": "file",
+    "required": false,
+    "label": "File Upload",
+    "className": "form-control",
+    "name": "file-1618503353922",
+    "access": false,
+    "subtype": "file",
+    "multiple": false
+  },
+ {
+    "type": "header",
+    "subtype": "h1",
+    "label": "Header",
+    "access": false
+  },
+ {
+    "type": "hidden",
+    "name": "hidden-1618503359936",
+    "access": false
+  },
+ {
+    "type": "number",
+    "required": false,
+    "label": "Number",
+    "className": "form-control",
+    "name": "number-1618503362988",
+    "access": false
+  },
+ {
+    "type": "radio-group",
+    "required": false,
+    "label": "Radio Group",
+    "inline": false,
+    "name": "radio-group-1618503369551",
+    "access": false,
+    "other": false,
+    "values": [
+      {
+        "label": "Option 1",
+        "value": "option-1",
+        "selected": false
+      },
+      {
+        "label": "Option 2",
+        "value": "option-2",
+        "selected": false
+      },
+      {
+        "label": "Option 3",
+        "value": "option-3",
+        "selected": false
+      }
+    ]
+  },
+ {
+    "type": "paragraph",
+    "subtype": "p",
+    "label": "Paragraph",
+    "access": false
+  },
+ {
+    "type": "select",
+    "required": false,
+    "label": "Select",
+    "className": "form-control",
+    "name": "select-1618503373302",
+    "access": false,
+    "multiple": false,
+    "values": [
+      {
+        "label": "Option 1",
+        "value": "option-1",
+        "selected": true
+      },
+      {
+        "label": "Option 2",
+        "value": "option-2",
+        "selected": false
+      },
+      {
+        "label": "Option 3",
+        "value": "option-3",
+        "selected": false
+      }
+    ]
+  },
+ {
+    "type": "text",
+    "required": false,
+    "label": "Text Field",
+    "className": "form-control",
+    "name": "text-1618503376302",
+    "access": false,
+    "subtype": "text"
+  },
+ {
+    "type": "textarea",
+    "required": false,
+    "label": "Text Area",
+    "className": "form-control",
+    "name": "textarea-1618503379083",
+    "access": false,
+    "subtype": "textarea"
+  }
+ ]
+ * @param ev
+ */
+
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
 }
-if (darkmode) {
-    document.querySelector('body').classList.add('darkmode')
-    document.querySelector('#dark-mode-switch').checked = 'checked'
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
 }
-activateTab(opentab)
 
-
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
